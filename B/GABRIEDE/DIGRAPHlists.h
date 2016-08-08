@@ -1,3 +1,24 @@
+/* DECLARO QUE SOU O UNICO AUTOR E RESPONSAVEL POR ESTE PROGRAMA.
+// TODAS AS PARTES DO PROGRAMA, EXCETO AS QUE FORAM FORNECIDAS
+// PELO PROFESSOR OU COPIADAS DO LIVRO OU DAS BIBLIOTECAS DE
+// SEDGEWICK OU ROBERTS, FORAM DESENVOLVIDAS POR MIM.  DECLARO
+// TAMBEM QUE SOU RESPONSAVEL POR TODAS AS COPIAS DESTE PROGRAMA
+// E QUE NAO DISTRIBUI NEM FACILITEI A DISTRIBUICAO DE COPIAS.
+// 
+// Autor:      Gabriel de Russo e Carmo
+// Numero USP: 9298041
+// Sigla:      GABRIEDE
+// Data:       2016-08-08
+// 
+// Este arquivo faz parte da tarefa B
+// da disciplina MAC0328.
+// 
+//////////////////////////////////////////////////////////////// */
+
+/* Biblioteca para manipulacao de digrafos.
+ * As listas de adjacencia sao implementadas com
+ * listas encadeadas. */
+
 #ifndef _DIGRAPHLIST_H
 #define _DIGRAPHLIST_H
 

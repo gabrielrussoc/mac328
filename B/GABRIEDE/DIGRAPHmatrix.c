@@ -8,7 +8,7 @@
 // Autor:      Gabriel de Russo e Carmo
 // Numero USP: 9298041
 // Sigla:      GABRIEDE
-// Data:       2016-08-05
+// Data:       2016-08-08
 // 
 // Este arquivo faz parte da tarefa B
 // da disciplina MAC0328.
@@ -52,7 +52,7 @@ void DIGRAPHremoveA (Digraph G, Vertex u, Vertex v) {
 void DIGRAPHshow (Digraph G) {
     Vertex u, v;
     for (u = 0; u < G->V; u++) {
-        printf("%d: ",u);
+        printf("%d:",u);
         for (v = 0; v < G->V; v++)
             if (G->adj[u][v]) printf(" %d", v);
         putchar ('\n');

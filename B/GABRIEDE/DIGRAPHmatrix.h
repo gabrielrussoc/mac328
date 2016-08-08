@@ -8,12 +8,15 @@
 // Autor:      Gabriel de Russo e Carmo
 // Numero USP: 9298041
 // Sigla:      GABRIEDE
-// Data:       2016-08-05
+// Data:       2016-08-08
 // 
 // Este arquivo faz parte da tarefa B
 // da disciplina MAC0328.
 // 
 //////////////////////////////////////////////////////////////// */
+
+/* Biblioteca para manipulacao de digrafos.
+ * As listas de adjacencia sao implementadas com matrizes */
 
 #ifndef _DIGRAPHMATRIX_H
 #define _DIGRAPHMATRIX_H

@@ -27,8 +27,12 @@
  * Se o digrafo for a ser gerado for denso, o programa gera um digrafo com
  * A arcos em media. */
 
+#define maxV 100
+static int conta, pre[maxV], prof;
+
 /* Imprime na saida padrao o rastro de uma busca em profundidade 
- * no digrafo G, assim como seus vertices em pre-ordem. */
+ * no digrafo G. Cada linha da tabela registra o momento em que um arco 
+ * é percorrido e a correspondente invocação de dfsR (), quando ocorre. */
 void DIGRAPHdfs (Digraph G);
     
 int main (int argc, char **argv) {
@@ -51,45 +55,39 @@ int main (int argc, char **argv) {
 }
 
 /* Realiza uma busca em profundidade no grafo G a partir do vertice u, 
- * imprimindo seu rastro. Guarda o tempo de descobrimento t no vetor 
- * pre[0..G->V-1] e identa a chamada com base no inteiro dep (a profundidade 
- * da chamada atual). */ 
-static void dfsR (Digraph G, Vertex u, int *pre, int dep, int *t) {
+ * imprimindo seu rastro. Guarda o tempo de descoberta conta no vetor global 
+ * pre[0..maxV-1] e identa a chamada com base no inteiro global prof 
+ * (a profundidade da chamada atual). */ 
+static void dfsR (Digraph G, Vertex u) {
     List a;
     Vertex v;
     int i;
-    pre[u] = (*t)++;
-    for (i = 0; i < dep; i++) printf  ("|  ");
-    printf ("DFS (%d)\n",u);
+    pre[u] = conta++;
+    prof++;
     for (a = G->adj[u]; a != NULL; a = a->next) {
         v = a->u;
-        if (pre[v] == -1)
-            dfsR (G, v, pre, dep + 1, t);
+        for (i = 0; i < prof; i++) printf ("  ");
+        printf ("%d-%d", u, v);
+        if (pre[v] == -1) {
+            printf (" dfsR (G, %d)\n",v);
+            dfsR (G, v);
+        } else putchar ('\n');
     }
-    for (i = 0; i < dep; i++) printf  ("|  ");
-    printf ("FIM (%d)\n", u);
+    prof--;
 }
 
 void DIGRAPHdfs (Digraph G) {
     Vertex u;
-    int t = 0;
-    int *aux = malloc (G->V * sizeof (int));
-    int *pre = malloc (G->V * sizeof (int));
-
-    printf ("Digrafo com %d vértices e %d arcos.\n\n", G->V, G->A);
     
+    conta = prof = 0;
     for (u = 0; u < G->V; u++)
         pre[u] = -1;
+
     for (u = 0; u < G->V; u++)
-        if (pre[u] == -1)
-            dfsR (G, u, pre, 0, &t);
-
-    for (u = 0; u < G->V; u++) aux[pre[u]] = u;
-    printf ("\nVértices em pré-ordem:\n");
-    for (u = 0; u < G->V; u++) printf ("%d ", aux[u]);
-    putchar ('\n');
-
-    free (pre);
-    free (aux);
+        if (pre[u] == -1) {
+            printf ("dfsR (G, %d)\n", u);
+            dfsR (G, u);
+            putchar ('\n');
+        }
 }
 

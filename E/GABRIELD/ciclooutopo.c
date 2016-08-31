@@ -46,6 +46,8 @@ int main() {
     v = DIGRAPHcycleOrTopo (G);
     if (v == -1) printTopo (G);
     else printCycle (G, v);
+    
+    DIGRAPHdestroy (G);
 
     return 0;
 }

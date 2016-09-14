@@ -1,0 +1,30 @@
+DECLARO QUE SOU O UNICO AUTOR E RESPONSAVEL POR ESTE PROGRAMA.
+TODAS AS PARTES DO PROGRAMA, EXCETO AS QUE FORAM FORNECIDAS
+PELO PROFESSOR OU COPIADAS DO LIVRO OU DAS BIBLIOTECAS DE
+SEDGEWICK OU ROBERTS, FORAM DESENVOLVIDAS POR MIM.  DECLARO
+TAMBEM QUE SOU RESPONSAVEL POR TODAS AS COPIAS DESTE PROGRAMA
+E QUE NAO DISTRIBUI NEM FACILITEI A DISTRIBUICAO DE COPIAS.
+
+Autor:      Gabriel de Russo e Carmo
+Numero USP: 9298041
+Sigla:      GABRIELD
+Data:       2016-09-13
+
+Este arquivo faz parte da tarefa F
+da disciplina MAC0328.
+
+Relatorio da tarefa F
+
+Um jeito fácil de dizer o que acontece com um digrafo aleatório com V vértices
+fixos quando aumentamos sua quantidade de arcos é que ele fica fortemente conexo 
+muito rápido. 
+Podemos notar que durante o processo, uma grande componente forte vai
+surgindo e rapidamente "engole" todas as outras. Se o digrafo possui V vértices,
+algo como 4V arcos já é suficiente para uma componente forte enorme abrigando mais de 
+90% dos vértices. Um fato impressionante é que com 2V arcos nós já temos uma componente
+grande com aproximadamente 60% dos vértices. Mas com V arcos, a maior componente abriga
+menos de 10% dos vértices (números obtidos após testes repetidos).
+Não utilizar o algoritmo de Kosaraju-Saju é completamente inviável. Digrafos relativamente
+pequenos demoram uma eternidade para rodar (5000 vértices). No algoritmo Kosaraju-Saju, o
+resultado é quase instantâneo. 
+

@@ -1,0 +1,39 @@
+Autor:      Gabriel de Russo e Carmo
+Numero USP: 9298041
+Sigla:      GABRIELD
+Data:       2016-10-04
+
+Este arquivo faz parte da tarefa G
+da disciplina MAC0328.
+
+Relatório sobre a tarefa G
+
+Para investigar o comportamento do programa, decidi fixar alguns parâmetros e variar
+outros. Com isso pude perceber algumas coisas interessantes e outras nem tanto. A primeira
+consideração é que o número de vértices impacta principalmente na magnitude do resultado.
+Para valores pequenos de d, existe uma boa chance do grafo ser desconexo quando V é
+pequeno. Tendo isso em vista, optei por um valor maior de vértices, algo como V = 1000.
+
+Quando fixamos o parâmetro k valendo 0, a distância média diminui conforme 
+aumentamos o valor de d. Como os pontos são gerados de forma equiprovável, 
+não há concentração numa região específica e portanto geramos um grafo cada 
+vez mais denso ao passo que permitimos um valor maior para d. É claro que, para 
+um mesmo conjunto de pontos, um grafo gerado com parâmetro d0 é subgrafo de 
+todo grafo gerado com d > d0, o que dá uma boa ideia do porquê a distância média
+diminui. 
+
+Entretanto, quando colocamos o parâmetro k valendo 1, fica evidente que não é à 
+toa que este programa se chama mundo pequeno. A distância média diminui muito!
+Para V = 1000 e d = 0.1, o número é mais de 2x menor. Veja:
+
+> 1000 0.1 0
+distancia media: 6.3
+> 1000 0.1 1
+distancia media: 2.9
+
+As novas arestas deixam o grafo muito mais denso, diminuindo drasticamente a distância
+média. Quando d é grande, o grafo gerado com GRAPHclosePoints() já é muito denso, diminuindo 
+o impacto de GRAPHaddRandEdges(). Todavia, para pequenos valores de d e k > 1, a distância média 
+continua a diminuir ao passo que k aumenta, mas dessa vez muito mais devagar. O primeiro salto
+de k = 0 pra k = 1 é significativamente maior do que outros.
+

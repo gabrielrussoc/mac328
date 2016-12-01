@@ -22,6 +22,9 @@
 #ifndef _WDIGRAPHLIST_H
 #define _WDIGRAPHLIST_H
 
+#include <float.h>
+#define INFINITO DBL_MAX
+
 #define Vertex int
 
 typedef struct node {

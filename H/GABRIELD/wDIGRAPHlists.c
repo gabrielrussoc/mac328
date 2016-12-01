@@ -18,7 +18,6 @@
 #include "PQ.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h>
 
 #define TRUE 1
 #define FALSE 0
@@ -143,11 +142,11 @@ void DIGRAPHsptD0 (Digraph G, Vertex s) {
     double min;
     link a;
     for (v = 0; v < G->V; v++) 
-        G->pai[v] = -1, G->dist[v] = INFINITY;
+        G->pai[v] = -1, G->dist[v] = INFINITO;
     G->pai[s] = s, G->dist[s] = 0.0; 
 
     while (TRUE) {
-        min = INFINITY;
+        min = INFINITO;
         for (v = 0; v < G->V; v++) {
             if (G->pai[v] == -1) continue;
             for (a = G->adj[v]; a != NULL; a = a->next) {
@@ -157,7 +156,7 @@ void DIGRAPHsptD0 (Digraph G, Vertex s) {
                 }
             }
         }
-        if (min == INFINITY) break;
+        if (min == INFINITO) break;
         G->pai[y] = x, G->dist[y] = min;
     }
 }
@@ -169,7 +168,7 @@ void DIGRAPHsptD1 (Digraph G, Vertex s) {
     
     frj = malloc (G->V * sizeof (Vertex));
     for (v = 0; v < G->V; v++)
-        G->pai[v] = -1, G->dist[v] = INFINITY;
+        G->pai[v] = -1, G->dist[v] = INFINITO;
     G->pai[s] = s, G->dist[s] = 0.0;
     for (a = G->adj[s]; a != NULL; a = a->next) {
         G->dist[a->w] = a->cst;
@@ -177,11 +176,11 @@ void DIGRAPHsptD1 (Digraph G, Vertex s) {
     }
 
     while (TRUE) {
-        min = INFINITY;
+        min = INFINITO;
         for (z = 0; z < G->V; z++) 
             if (G->pai[z] == -1 && G->dist[z] < min)
                 min = G->dist[y = z]; 
-        if (min == INFINITY) break;
+        if (min == INFINITO) break;
         G->pai[y] = frj[y];
         for (a = G->adj[y]; a != NULL; a = a->next) {
             w = a->w; c = a->cst;
@@ -201,7 +200,7 @@ void DIGRAPHsptD2 (Digraph G, Vertex s) {
     frj = malloc (G->V * sizeof (Vertex));
     for (v = 0; v < G->V; v++) {
         G->pai[v] = frj[v] = -1;
-        G->dist[v] = INFINITY;
+        G->dist[v] = INFINITO;
     }
 
     G->pai[s] = s, G->dist[s] = 0.0;

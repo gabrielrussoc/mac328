@@ -16,7 +16,6 @@
 //////////////////////////////////////////////////////////////// */
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h>
 #include "wDIGRAPHlists.h"
 
 /* Devolve o diametro do digrafo com custos nos arcos G */
@@ -79,8 +78,9 @@ void diameter (Digraph G, int impl) {
                 t = w;
             }
     }
-    printf ("Diametro: %.2f\n", ans);
-    if (ans != INFINITY) {
+    if (ans != INFINITO) printf ("Diametro: %.2f\n", ans);
+    else puts ("Diametro: infinito");
+    if (ans != INFINITO) {
         run_dijkstra (G, s, impl);
         way = path (t, G->pai);
         for (j = 0; way[j] != t; j++) size++; 
@@ -103,7 +103,8 @@ void maxdelta (Digraph G) {
                 ans = a->cst - G->dist[a->w] + G->dist[v];
                 x = v; y = a->w;
             }
-    printf ("Maior delta: %.2f", ans);
+    if (ans != INFINITO) printf ("Maior delta: %.2f", ans);
+    else printf ("Maior delta: infinito");
     if (x != -1 && y != -1) printf (" (arco %d-%d)", x, y);
     putchar ('\n');
 }
